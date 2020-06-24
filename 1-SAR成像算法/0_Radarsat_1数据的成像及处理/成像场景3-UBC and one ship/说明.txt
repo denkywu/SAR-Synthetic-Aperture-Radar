@@ -1,0 +1,5 @@
+%  For UBC and one ship,       use range =  760, azimuth =  7097
+
+成像采取：
+
+（1）CSA算法，并且可以选择进行非相干多视处理；

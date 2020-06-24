@@ -1,0 +1,6 @@
+%  For English Bay ships,      use range = 1050, azimuth =  7769
+
+
+成像采取：
+
+（1）CSA算法，并且可以选择进行非相干多视处理；
