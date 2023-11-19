@@ -29,6 +29,7 @@ sita_r_c = (3.5*pi)/180;	% 波束斜视角,3.5度,這裡轉為弧度(Beam squint
 % 定義參數
 % --------------------------------------------------------------------
 c = 3e8;                    % 光速(Speed of light)
+
 R0 = R_nc*cos(sita_r_c);	% 與R_nc相對應的最近斜距,根據(4.17)計算.(Range of closest approach)
 Nr = Tr*Fr;                 % 線性調頻信號採樣點數,課本找不到
 BW_range = Kr*Tr;           % 距離向帶寬.(表4.3).(Range bandwidth)
@@ -61,20 +62,18 @@ y1 = delta_R0 + x1*tan(sita_r_c);	% 目標1的的方位向距離
 % 目標B
 x2 = x1;            % 目標B和目標A的距離向距離相同
 y2 = y1 + delta_R1; % 目標B的方位向距離
-
 % 目標C
 x3 = x2 + delta_R2;                 % 目標C和目標B有距離向的距離差,為delta_R2
 y3 = y2 + delta_R2*tan(sita_r_c);  	% 目標C的方位向距離
-
 % 定義目標A,B,C位置向量矩陣
 x_range = [x1,x2,x3];
 y_azimuth = [y1,y2,y3];
 
-% 計算三個目標各自的波束中心穿越时刻
-nc_1 = (y1-x1*tan(sita_r_c))/Vr;    % 目標A的波束中心穿越时刻。
-nc_2 = (y2-x2*tan(sita_r_c))/Vr;    % 目標B的波束中心穿越时刻。
-nc_3 = (y3-x3*tan(sita_r_c))/Vr;    % 目標C的波束中心穿越时刻。
-nc_target = [nc_1,nc_2,nc_3];       % 定義目標A,B,C穿越时刻矩陣。
+% 计算三个目标各自的波束中心穿越时刻
+nc_1 = (y1-x1*tan(sita_r_c))/Vr;    % 目标1的波束中心穿越时刻。
+nc_2 = (y2-x2*tan(sita_r_c))/Vr;    % 目标2的波束中心穿越时刻。
+nc_3 = (y3-x3*tan(sita_r_c))/Vr;    % 目标3的波束中心穿越时刻。
+nc_target = [nc_1,nc_2,nc_3];       % 定义该数组，便于处理。
 
 %% 
 % --------------------------------------------------------------------
